@@ -1,4 +1,4 @@
-# Claude Code Setup Guide
+# Claude Code Project Setup Guide
 _Run this once per new project, before your first Claude Code session._
 
 ---
@@ -8,9 +8,9 @@ _Run this once per new project, before your first Claude Code session._
 | Asset | Location | How |
 |-------|----------|-----|
 | CLAUDE.md | project root | Copy template, fill 4 fields |
-| 7 commands | `.claude/commands/` | Copy files from commands.zip |
+| 7 commands | `.claude/commands/` | Copy from `../commands/` |
 | Hook + config | `.claude/hooks/` + `.claude/settings.json` | Ask Claude Code to configure |
-| 2 starter templates | `docs/` | Copy files from templates.zip |
+| 2 starter templates | `docs/` | Copy from `../templates/` |
 | Pre-built docs | `docs/` | Copy from your Claude.ai session |
 
 ---
@@ -22,9 +22,9 @@ Before starting, confirm you have:
 - [ ] Claude Code installed (`claude --version` works in terminal)
 - [ ] Node.js installed (`node --version` works in terminal)
 - [ ] A project folder created and `git init` run
-- [ ] These files downloaded from Claude.ai:
-  - `commands.zip` — contains 7 command files
-  - `templates.zip` — contains OPEN_QUESTIONS.md and MEMORY.md
+- [ ] These files ready one level up (`../`) from your project folder:
+  - `commands/` folder — contains 7 .md command files
+  - `templates/` folder — contains OPEN_QUESTIONS.md and MEMORY.md
   - `CLAUDE.md` — project brain template
 - [ ] These docs generated in Claude.ai (via `project-scoping` + `solution-design` skills):
   - `PRD.md`, `ROADMAP.md`, `ASSUMPTIONS.md`, `ARCHITECTURE.md`, `SCENARIOS.md`
@@ -50,7 +50,13 @@ or reorganize — agents navigate by exact path.
 
 ## Step 2 — Install the CLAUDE.md Template
 
-Copy `CLAUDE.md` into your project root, then fill in the four fields at the top:
+Copy `CLAUDE.md` from one level up into your project root:
+
+```bash
+cp ../CLAUDE.md ./CLAUDE.md
+```
+
+Then fill in the four fields at the top:
 
 ```markdown
 - **Name**: [Your project name]
@@ -66,11 +72,10 @@ once the Orchestrator confirms the stack from your ARCHITECTURE.md.
 
 ## Step 3 — Install the Commands
 
-Unzip `commands.zip` and copy all seven files:
+Copy all seven command files from one level up:
 
 ```bash
-unzip commands.zip -d /tmp/commands
-cp /tmp/commands/*.md .claude/commands/
+cp ../commands/*.md .claude/commands/
 ```
 
 Verify all seven are present:
@@ -129,12 +134,11 @@ Wait for "Hook installed and verified." before proceeding to Step 5.
 
 ## Step 5 — Add the Starter Templates
 
-Unzip `templates.zip` and copy into `docs/`:
+Copy the starter templates from one level up into `docs/`:
 
 ```bash
-unzip templates.zip -d /tmp/templates
-cp /tmp/templates/OPEN_QUESTIONS.md docs/OPEN_QUESTIONS.md
-cp /tmp/templates/MEMORY.md         docs/MEMORY.md
+cp ../templates/OPEN_QUESTIONS.md docs/OPEN_QUESTIONS.md
+cp ../templates/MEMORY.md         docs/MEMORY.md
 ```
 
 Replace `[Project Name]` in both files:
@@ -152,14 +156,14 @@ sed -i 's/\[Project Name\]/YourProjectName/g' docs/OPEN_QUESTIONS.md docs/MEMORY
 ## Step 6 — Copy Your Pre-Built Docs
 
 ```bash
-cp /path/to/PRD.md           docs/PRD.md
-cp /path/to/ASSUMPTIONS.md   docs/ASSUMPTIONS.md
-cp /path/to/ARCHITECTURE.md  docs/ARCHITECTURE.md
-cp /path/to/SCENARIOS.md     docs/SCENARIOS.md
+cp ../PRD.md           docs/PRD.md
+cp ../ASSUMPTIONS.md   docs/ASSUMPTIONS.md
+cp ../ARCHITECTURE.md  docs/ARCHITECTURE.md
+cp ../SCENARIOS.md     docs/SCENARIOS.md
 
 # ROADMAP.md stays at project root — NOT inside docs/
 # Agents read docs/ freely; root-only placement enforces the off-limits rule
-cp /path/to/ROADMAP.md       ./ROADMAP.md
+cp ../ROADMAP.md       ./ROADMAP.md
 ```
 
 ---
