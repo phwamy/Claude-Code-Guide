@@ -34,8 +34,6 @@ The following table covers every document needed to build a multi-module applica
 
 # Document System
 
-# Document System
-
 The following table covers every document needed to build a multi-module application — ordered by when to create them in the project lifecycle.
 
 | Document | Purpose | When & Who Creates | Reader | When & How to Update/Maintain | At Phase End | What's Ready |
