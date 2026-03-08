@@ -53,7 +53,7 @@ or reorganize — agents navigate by exact path.
 Copy `CLAUDE.md` from one level up into your project root:
 
 ```bash
-cp ../CLAUDE.md ./CLAUDE.md
+cp ../templates/CLAUDE.md ./CLAUDE.md
 ```
 
 Then fill in the four fields at the top:
